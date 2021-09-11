@@ -126,3 +126,5 @@ STATICFILES_DIRS = (
 )
 #############################################################
 #############################################################
+
+MAPBOX_TOKEN = "pk.eyJ1IjoiYWltZW5lIiwiYSI6ImNrcWo3eWZ2MDBkdmkyb3FzMmR0emM5cTAifQ.7BnnLmHxV2U6dF0nFEtzkg"

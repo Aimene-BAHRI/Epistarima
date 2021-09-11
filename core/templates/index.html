@@ -12,92 +12,77 @@
     <div class="page-header row no-gutters py-4">
       <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
         <span class="text-uppercase page-subtitle">Dashboard</span>
-        <h3 class="page-title">Blog Overview</h3>
+        <h3 class="page-title">Global Overview</h3>
       </div>
     </div>
     <!-- End Page Header -->
     <!-- Small Stats Blocks -->
     <div class="row">
-      <div class="col-lg col-md-6 col-sm-6 mb-4">
+      <div class="col-lg col-md-6 col-sm-6 col-xs-6 mb-4">
         <div class="stats-small stats-small--1 card card-small">
           <div class="card-body p-0 d-flex">
             <div class="d-flex flex-column m-auto">
               <div class="stats-small__data text-center">
-                <span class="stats-small__label text-uppercase">Posts</span>
-                <h6 class="stats-small__value count my-3">2,390</h6>
+                <span class="stats-small__label text-uppercase">Confirmed</span>
+                <h6 class="stats-small__value count my-3">{{api.latest.confirmed}}</h6>
               </div>
               <div class="stats-small__data">
-                <span class="stats-small__percentage stats-small__percentage--increase">4.7%</span>
+                <span class="stats-small__percentage stats-small__percentage--increase">{{api.latest.newConfirmed}}</span>
               </div>
             </div>
             <canvas height="120" class="blog-overview-stats-small-1"></canvas>
           </div>
         </div>
-      </div>
-      <div class="col-lg col-md-6 col-sm-6 mb-4">
+      </div> 
+      <div class="col-lg col-md-6 col-sm-6 col-xs-6 mb-4">
         <div class="stats-small stats-small--1 card card-small">
           <div class="card-body p-0 d-flex">
             <div class="d-flex flex-column m-auto">
               <div class="stats-small__data text-center">
-                <span class="stats-small__label text-uppercase">Pages</span>
-                <h6 class="stats-small__value count my-3">182</h6>
+                <span class="stats-small__label text-uppercase">Recovered</span>
+                <h6 class="stats-small__value count my-3">{{api.latest.recovered}}</h6>
               </div>
               <div class="stats-small__data">
-                <span class="stats-small__percentage stats-small__percentage--increase">12.4%</span>
+                <span class="stats-small__percentage stats-small__percentage--increase">{{api.latest.newRecovered}}</span>
               </div>
             </div>
             <canvas height="120" class="blog-overview-stats-small-2"></canvas>
           </div>
         </div>
-      </div>
-      <div class="col-lg col-md-4 col-sm-6 mb-4">
+      </div> 
+      <div class="col-lg col-md-6 col-sm-6 col-xs-6 mb-4">
         <div class="stats-small stats-small--1 card card-small">
           <div class="card-body p-0 d-flex">
             <div class="d-flex flex-column m-auto">
               <div class="stats-small__data text-center">
-                <span class="stats-small__label text-uppercase">Comments</span>
-                <h6 class="stats-small__value count my-3">8,147</h6>
+                <span class="stats-small__label text-uppercase">Deaths</span>
+                <h6 class="stats-small__value count my-3">{{ api.latest.deaths}}</h6>
               </div>
               <div class="stats-small__data">
-                <span class="stats-small__percentage stats-small__percentage--decrease">3.8%</span>
+                <span class="stats-small__percentage stats-small__percentage--increase">{{ api.latest.newDeaths}}</span>
               </div>
             </div>
-            <canvas height="120" class="blog-overview-stats-small-3"></canvas>
+            {% comment %} <canvas height="120" class="blog-overview-stats-small-3"></canvas> {% endcomment %}
           </div>
         </div>
-      </div>
-      <div class="col-lg col-md-4 col-sm-6 mb-4">
+      </div> 
+      <div class="col-lg col-md-6 col-sm-6 col-xs-6 mb-4">
         <div class="stats-small stats-small--1 card card-small">
           <div class="card-body p-0 d-flex">
             <div class="d-flex flex-column m-auto">
               <div class="stats-small__data text-center">
-                <span class="stats-small__label text-uppercase">Users</span>
-                <h6 class="stats-small__value count my-3">2,413</h6>
+                <span class="stats-small__label text-uppercase">Treatment</span>
+                <h6 class="stats-small__value count my-3">{{api.latest.treatment }}</h6>
               </div>
               <div class="stats-small__data">
-                <span class="stats-small__percentage stats-small__percentage--increase">12.4%</span>
+                <span class="stats-small__percentage stats-small__percentage--increase">{{api.latest.newTreatment}}</span>
               </div>
             </div>
-            <canvas height="120" class="blog-overview-stats-small-4"></canvas>
+            {% comment %} <canvas height="120" class="blog-overview-stats-small-4"></canvas> {% endcomment %}
           </div>
         </div>
       </div>
-      <div class="col-lg col-md-4 col-sm-12 mb-4">
-        <div class="stats-small stats-small--1 card card-small">
-          <div class="card-body p-0 d-flex">
-            <div class="d-flex flex-column m-auto">
-              <div class="stats-small__data text-center">
-                <span class="stats-small__label text-uppercase">Subscribers</span>
-                <h6 class="stats-small__value count my-3">17,281</h6>
-              </div>
-              <div class="stats-small__data">
-                <span class="stats-small__percentage stats-small__percentage--decrease">2.4%</span>
-              </div>
-            </div>
-            <canvas height="120" class="blog-overview-stats-small-5"></canvas>
-          </div>
-        </div>
-      </div>
+      
     </div>
     <!-- End Small Stats Blocks -->
     <div class="row">
@@ -105,10 +90,10 @@
       <div class="col-lg-8 col-md-12 col-sm-12 mb-4">
         <div class="card card-small">
           <div class="card-header border-bottom">
-            <h6 class="m-0">Users</h6>
+            <h6 class="m-0">Cases by Age</h6>
           </div>
           <div class="card-body pt-0">
-            <div class="row border-bottom py-2 bg-light">
+            {% comment %} <div class="row border-bottom py-2 bg-light">
               <div class="col-12 col-sm-6">
                 <div id="blog-overview-date-range" class="input-daterange input-group input-group-sm my-auto ml-auto mr-auto ml-sm-auto mr-sm-0" style="max-width: 350px;">
                   <input type="text" class="input-sm form-control" name="start" placeholder="Start Date" id="blog-overview-date-range-1">
@@ -123,22 +108,22 @@
               <div class="col-12 col-sm-6 d-flex mb-2 mb-sm-0">
                 <button type="button" class="btn btn-sm btn-white ml-auto mr-auto ml-sm-auto mr-sm-0 mt-3 mt-sm-0">View Full Report &rarr;</button>
               </div>
-            </div>
-            <canvas height="130" style="max-width: 100% !important;" class="blog-overview-users"></canvas>
+            </div> {% endcomment %}
+            <canvas height="130" style="max-width: 100% !important;" id="blog-overview-users"></canvas>
           </div>
         </div>
       </div>
       <!-- End Users Stats -->
       <!-- Users By Device Stats -->
-      <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+      <div class="col-lg-4 col-md-12 col-sm-12 mb-4">
         <div class="card card-small h-100">
           <div class="card-header border-bottom">
-            <h6 class="m-0">Users by device</h6>
+            <h6 class="m-0">Cases by Gender</h6>
           </div>
           <div class="card-body d-flex py-0">
-            <canvas height="220" class="blog-users-by-device m-auto"></canvas>
+            <canvas id="blog-users-by-device" height="220" class=" m-auto"></canvas>
           </div>
-          <div class="card-footer border-top">
+          {% comment %} <div class="card-footer border-top">
             <div class="row">
               <div class="col">
                 <select class="custom-select custom-select-sm" style="max-width: 130px;">
@@ -152,11 +137,11 @@
                 <a href="#">Full report &rarr;</a>
               </div>
             </div>
-          </div>
+          </div> {% endcomment %}
         </div>
       </div>
       <!-- End Users By Device Stats -->
-      <!-- New Draft Component -->
+      {% comment %} <!-- New Draft Component -->
       <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
         <!-- Quick Post -->
         <div class="card card-small h-100">
@@ -340,7 +325,7 @@
           </div>
         </div>
       </div>
-      <!-- End Top Referrals Component -->
+      <!-- End Top Referrals Component --> {% endcomment %}
     </div>
  </div>
   
@@ -350,7 +335,170 @@
 
 <!-- Specific Page JS goes HERE  -->
 {% block javascripts %}
+  <script>
+  $(document).ready(function () {
+    //
+    // Blog Overview Users
+    //
 
+    var bouCtx = document.getElementById('blog-overview-users');
+
+    var data_per_ages = {{ api.age | safe }};
+    var labels = []
+    var confirmed = []
+    var deaths = []
+
+    console.log(data_per_ages);
+    for (let i = 0; i < Object.keys(data_per_ages).length; i++) {
+      labels.push(data_per_ages[i].label)
+      confirmed.push(data_per_ages[i].confirmed)
+      deaths.push(data_per_ages[i].deaths)
+    }
+    console.log(labels)
+    // Data
+    var bouData = {
+      // Generate the days labels on the X axis.
+      labels: labels,
+      datasets: [{
+        label: 'Confirmed',
+        fill: 'start',
+        data: confirmed,
+        backgroundColor: 'rgba(0,123,255,0.1)',
+        borderColor: 'rgba(0,123,255,1)',
+        pointBackgroundColor: '#ffffff',
+        pointHoverBackgroundColor: 'rgb(0,123,255)',
+        borderWidth: 1.5,
+        pointRadius: 0,
+        pointHoverRadius: 3
+      }, {
+        label: 'Deaths',
+        fill: 'start',
+        data: deaths,
+        backgroundColor: 'rgba(255,65,105,0.1)',
+        borderColor: 'rgba(255,65,105,1)',
+        pointBackgroundColor: '#ffffff',
+        pointHoverBackgroundColor: 'rgba(255,65,105,1)',
+        borderDash: [3, 3],
+        borderWidth: 1,
+        pointRadius: 0,
+        pointHoverRadius: 2,
+        pointBorderColor: 'rgba(255,65,105,1)'
+      }]
+    };
+
+    // Options
+    var bouOptions = {
+      responsive: true,
+      legend: {
+        position: 'top'
+      },
+      elements: {
+        line: {
+          // A higher value makes the line look skewed at this ratio.
+          tension: 0.3
+        },
+        point: {
+          radius: 0
+        }
+      },
+      scales: {
+        xAxes: [{
+          gridLines: false,
+          ticks: {
+            padding: 20,
+          }
+        }],
+        yAxes: [{
+          ticks: {
+            suggestedMax: 45,
+            callback: function (tick, index, ticks) {
+              if (tick === 0) {
+                return tick;
+              }
+              // Format the amounts using Ks for thousands.
+              return tick > 999 ? (tick/ 1000).toFixed(1) + 'K' : tick;
+            }
+          }
+        }]
+      },
+      // Uncomment the next lines in order to disable the animations.
+      // animation: {
+      //   duration: 0
+      // },
+      hover: {
+        mode: 'nearest',
+        intersect: false
+      },
+      tooltips: {
+        custom: false,
+        mode: 'nearest',
+        intersect: false
+      }
+    };
+
+    // Generate the Analytics Overview chart.
+    window.BlogOverviewUsers = new Chart(bouCtx, {
+      type: 'bar',
+      data: bouData,
+      options: bouOptions
+    });
+    // Hide initially the first and last analytics overview chart points.
+    // They can still be triggered on hover.
+    var aocMeta = BlogOverviewUsers.getDatasetMeta(0);
+    aocMeta.data[0]._model.radius = 0;
+    aocMeta.data[bouData.datasets[0].data.length - 1]._model.radius = 0;
+
+    // Render the chart.
+    window.BlogOverviewUsers.render();
+
+    //
+    // Users by device pie chart
+    //
+    
+    // Data
+    var datas = {{ api.gender | safe }};
+    console.log(datas)
+    // Data
+    var ubdData = {
+      datasets: [{
+        hoverBorderColor: '#ffffff',
+        data: Object.values(datas),
+        backgroundColor: [
+          'rgba(0,123,255,0.9)',
+          'rgba(0,123,255,0.3)'
+        ]
+      }],
+      labels: Object.keys(datas)
+    };
+
+    // Options
+    var ubdOptions = {
+      legend: {
+        position: 'bottom',
+        labels: {
+          padding: 25,
+          boxWidth: 20
+        }
+      },
+      cutoutPercentage: 0,
+      // Uncomment the following line in order to disable the animations.
+      // animation: false,
+      tooltips: {
+        custom: false,
+        mode: 'index',
+        position: 'nearest'
+      }
+    };
+
+    var ubdCtx = document.getElementById('blog-users-by-device');
+    // Generate the users by device chart.
+    window.ubdChart = new Chart(ubdCtx, {
+      type: 'pie',
+      data: ubdData,
+      options: ubdOptions
+    });
+  });
+  </script>
   <script src="/static/assets/js/app/app-blog-overview.1.1.0.js"></script>
 
 {% endblock javascripts %}

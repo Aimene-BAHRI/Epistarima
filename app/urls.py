@@ -13,4 +13,9 @@ urlpatterns = [
 
     # The home page
     path('', views.index, name='home'),
+    path('map', views.map, name='map'),
+    path('wilayas', views.wilayas, name='wilayas'),
+    path('evolution', views.evolution, name='evolution'),
+    path('generate', views.auto_arima, name='auto_arima'),
+    path('api/countries/Algeria', views.covid_data, name='countries'),
 ]

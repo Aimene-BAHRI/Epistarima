@@ -1,0 +1,92 @@
+{% extends "layouts/base.html" %}
+{% load custom_date %}
+{% block title %} UI Tables {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.css">
+    <div class="main-content-container container-fluid px-4">
+        <!-- Page Header -->
+        <div class="page-header row no-gutters py-4">
+          <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+            <span class="text-uppercase page-subtitle">Overview</span>
+            <h3 class="page-title">Data Tables</h3>
+          </div>
+        </div>
+        <!-- End Page Header -->
+        <!-- Default Light Table -->
+        <div class="row">
+        <style>
+          table.dataTable tbody th, table.dataTable tbody td {
+              padding: 1% 0% !important;
+              border-top: black 1px solid !important;
+          }
+        </style>
+          <div class="col">
+            <div class="card card-small mb-4">
+              <div class="card-header border-bottom">
+                <h6 class="m-0">Provinces Data</h6>
+              </div>
+              
+              <div class="card-body p-0 pb-3 text-center">
+                <table id='table_id' >
+                  <thead class="bg-light">
+                    <tr>
+                      <th scope="col" class="border-0">City</th>
+                      <th scope="col" class="border-0">Confirmed</th>
+                      <th scope="col" class="border-0">yesterday Confirmed</th>
+                      <th scope="col" class="border-0">Deaths</th>
+                      <th scope="col" class="border-0">yesterday Deaths</th>
+                      <th scope="col" class="border-0">First Reported</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for row in api %}
+                      <tr>
+                        <td>{{ row.name }}</td>
+                        <td>{{ row.data.0.confirmed }}</td>
+                        <td>{% if row.data.0.newConfirmed != 0 %} 
+                              + {{ row.data.0.newConfirmed }} 
+                            {% else %}
+                              {{ row.data.0.newConfirmed }}
+                            {% endif %}
+                        </td>
+                        <td>{{ row.data.0.deaths }}</td>
+                        <td>
+                          {% if row.data.0.newDeaths != 0 %} 
+                              + {{ row.data.0.newDeaths }} 
+                            {% else %}
+                              {{ row.data.0.newDeaths }}
+                            {% endif %}
+                        </td>
+                        <td>{{ row.firstReported|custom_date }}</td>
+                      </tr>
+                    {% endfor %}
+                    
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Default Light Table -->
+        
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.js"></script>
+  <script>
+    $(document).ready(function () {
+      var data =  {{ api|safe }};
+      console.log(Object.values(data[0]['data'][0]))
+      $('#table_id').DataTable();
+    });
+  </script>
+{% endblock javascripts %}

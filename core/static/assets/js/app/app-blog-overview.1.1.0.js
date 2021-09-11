@@ -222,19 +222,18 @@
     //
     // Users by device pie chart
     //
-
+    
     // Data
     var ubdData = {
       datasets: [{
         hoverBorderColor: '#ffffff',
-        data: [68.3, 24.2, 7.5],
+        data: [68.3, 7.5],
         backgroundColor: [
           'rgba(0,123,255,0.9)',
-          'rgba(0,123,255,0.5)',
           'rgba(0,123,255,0.3)'
         ]
       }],
-      labels: ["Desktop", "Tablet", "Mobile"]
+      labels: ["Desktop", "Mobile"]
     };
 
     // Options
@@ -256,8 +255,7 @@
       }
     };
 
-    var ubdCtx = document.getElementsByClassName('blog-users-by-device')[0];
-
+    var ubdCtx = document.getElementById('blog-users-by-device');
     // Generate the users by device chart.
     window.ubdChart = new Chart(ubdCtx, {
       type: 'pie',

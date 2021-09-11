@@ -1,0 +1,94 @@
+{% extends "layouts/base.html" %}
+{% load custom_date %}
+{% load static %}
+{% block title %} UI Tables {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.css">
+    <div class="main-content-container container-fluid px-4">
+        <!-- Page Header -->
+        <div class="page-header row no-gutters py-4">
+          <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+            <span class="text-uppercase page-subtitle">Overview</span>
+            <h3 class="page-title">Data Tables</h3>
+          </div>
+        </div>
+        <!-- End Page Header -->
+        <!-- Default Light Table -->
+        <div class="row">
+          <div class="col">
+            <div class="card card-small mb-4">
+              <div class="card-header border-bottom">
+                <h6 class="m-0">Provinces Data</h6>
+              </div>
+              <div class="card-body p-0 pb-3 text-center">
+              <form method="post">
+                {% csrf_token %}
+                <div class="form-row">
+                   <div class="col-md-4">
+                    <div class="position-relative form-group">
+                      <label for="D" class="">D</label>
+                      <input name="D" type="text" id="D"  class="form-control"></input>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="position-relative form-group">
+                      <label for="Q" class="">Q</label>
+                      <input name="Q" type="text" id="Q"  class="form-control"></input>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="position-relative form-group">
+                      <label for="P" class="">P</label>
+                      <input name="P" type="text" id="P"  class="form-control"></input>
+                    </div>
+                  </div> 
+                </div>
+                  
+                  
+                  <button onclick="showLoaderOnClick()" name="btn_comment" type="submit" class="mt-1 btn btn-primary">Generate Auto ARIMA Model</button>
+              </form>
+              </div>
+              {% if best_model %}
+                <div class="card-body p-0 pb-3 text-center">
+                  {{ best_model }}
+                  <hr>
+                  <img src="data:image/png;base64,{{ graphic|safe }}">
+                  <hr>
+                  {{ score }}
+                </div>
+              {% endif %}
+              <div class="test" id="test"></div>
+              
+            </div>
+          </div>
+        </div>
+        <!-- End Default Light Table -->
+        
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.js"></script>
+  <!-- JQuery -->
+	<script
+		src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"
+	></script>
+  <script>
+    console.log('hi')
+    function showLoaderOnClick(url) {
+			showLoader();
+			window.location.href;
+		}
+		function showLoader(){
+			$('#test').append('<div style="position: relative;justify-content: center;align-items: center;margin: auto;display: flex;margin-top: 120px;" id="loadingDiv"><div class="loader"><img class="logo-src" src="{% static 'assets/img/ajax-loader1.gif' %}" alt="" srcset="" width="auto"></div></div>');
+		}
+  </script>
+{% endblock javascripts %}

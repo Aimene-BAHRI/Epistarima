@@ -21,11 +21,11 @@
   </head>
   <body class="h-100">
     
-    {% include 'includes/color-switcher.html' %}
+    {% comment %} {% include 'includes/color-switcher.html' %} {% endcomment %}
 
-    <div class="color-switcher-toggle animated pulse infinite">
+    {% comment %} <div class="color-switcher-toggle animated pulse infinite">
       <i class="material-icons">settings</i>
-    </div>
+    </div> {% endcomment %}
 
     <div class="container-fluid">
       <div class="row">
@@ -34,17 +34,19 @@
 
         <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
 
-          {% include 'includes/navigation.html' %}
+          {% comment %} {% include 'includes/navigation.html' %} {% endcomment %}
 
-          {% block content %}{% endblock content %}
+          {% block content %}
+          
+          {% endblock content %}
 
-          {% include 'includes/footer.html' %}
+          {% comment %} {% include 'includes/footer.html' %} {% endcomment %}
 
         </main>
       </div>
     </div>
     
-    {% include 'includes/footer-popup.html' %}
+    {% comment %} {% include 'includes/footer-popup.html' %} {% endcomment %}
 
     {% include 'includes/scripts.html' %}
 

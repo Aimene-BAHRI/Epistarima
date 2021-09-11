@@ -4,10 +4,10 @@
               <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
                 <a class="navbar-brand w-100 mr-0" 
                    target="_blank"
-                   href="https://appseed.us/admin-dashboards/django-dashboard-shards" style="line-height: 25px;">
+                   href="{% url 'home' %}" style="line-height: 25px;">
                   <div class="d-table m-auto">
                     <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;" src="/static/assets/img/shards-dashboards-logo.svg" alt="Shards Dashboard">
-                    <span class="d-none d-md-inline ml-1">Django Shards Dashboard</span>
+                    <span class="d-none d-md-inline ml-1">Epi_STARIMA</span>
                   </div>
                 </a>
                 <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
@@ -29,45 +29,35 @@
               <div class="nav-wrapper">
                 <ul class="nav flex-column">
                   <li class="nav-item">
-                    <a class="nav-link active" href="/">
-                      <i class="material-icons">edit</i>
+                    <a class="nav-link active" href="{% url 'home' %}">
+                      <i class="material-icons">dashboard</i>
                       <span>Dashboard</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="/blog-posts.html">
-                      <i class="material-icons">vertical_split</i>
-                      <span>Blog Posts</span>
+                    <a class="nav-link " href="{% url 'map' %}">
+                      <i class="material-icons">travel_explore</i>
+                      <span>Cartographic View</span>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " href="/new-post.html">
-                      <i class="material-icons">note_add</i>
-                      <span>Add New Post</span>
+                    <a class="nav-link " href="{% url 'wilayas' %}">
+                      <i class="material-icons">layers</i>
+                      <span>Provinces</span>
                     </a>
                   </li>
+                  
                   <li class="nav-item">
-                    <a class="nav-link " href="/ui-components.html">
-                      <i class="material-icons">view_module</i>
-                      <span>Forms &amp; Components</span>
+                    <a class="nav-link " href="{% url 'evolution' %}">
+                      <i class="material-icons">stacked_line_chart</i>
+                      <span>Evolution</span>
                     </a>
                   </li>
+                  
                   <li class="nav-item">
-                    <a class="nav-link " href="/ui-tables.html">
-                      <i class="material-icons">table_chart</i>
-                      <span>Tables</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/user-profile.html">
-                      <i class="material-icons">person</i>
-                      <span>User Profile</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link " href="/page-500.html">
-                      <i class="material-icons">error</i>
-                      <span>Error 500</span>
+                    <a class="nav-link " href="{% url 'auto_arima' %}">
+                      <i class="material-icons">stacked_line_chart</i>
+                      <span>GENERATE ARIMA</span>
                     </a>
                   </li>
                 </ul>
